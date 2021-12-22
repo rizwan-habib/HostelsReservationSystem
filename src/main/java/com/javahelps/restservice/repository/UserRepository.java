@@ -1,9 +1,7 @@
 package com.javahelps.restservice.repository;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,16 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.javahelps.model.Controller;
 import com.javahelps.model.Hostel;
-import com.javahelps.model.ReservationRequests;
 import com.javahelps.model.Resident;
-import com.javahelps.restservice.entity.LoginDetails;
-import com.javahelps.restservice.entity.LoginReturn;
-import com.javahelps.restservice.entity.SendResponse;
-import com.javahelps.restservice.entity.enterHostelDetails;
-import com.javahelps.restservice.entity.SetUpProfileDetails;
-import com.javahelps.restservice.entity.UpdateHostelDetails;
-import com.javahelps.restservice.entity.bookaBedDetails;
-import com.javahelps.restservice.entity.enterRoomDetails;
+import com.javahelps.restservice.objects.LoginDetails;
+import com.javahelps.restservice.objects.LoginReturn;
+import com.javahelps.restservice.objects.SendResponse;
+import com.javahelps.restservice.objects.SetUpProfileDetails;
+import com.javahelps.restservice.objects.bookaBedDetails;
+import com.javahelps.restservice.objects.enterHostelDetails;
+import com.javahelps.restservice.objects.enterRoomDetails;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
@@ -30,7 +26,7 @@ public class UserRepository {
 	
 	public UserRepository() {
 		super();
-		this.systemController = new Controller();
+		this.systemController = Controller.getInstance();
 	}
 
 

@@ -1,31 +1,12 @@
-package com.javahelps.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.javahelps.restservice.objects;
 
-@Entity
-public class ReservationRequests {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int reqID;
-	
+public class bookaBedDetails {
 	private String hostelLogin;
 	private String username;
 	private int roomNo;
-	
-	public ReservationRequests() {
+	public bookaBedDetails() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public int getReqID() {
-		return reqID;
-	}
-
-	public void setReqID(int reqID) {
-		this.reqID = reqID;
-	}
-
 	public String getHostelLogin() {
 		return hostelLogin;
 	}

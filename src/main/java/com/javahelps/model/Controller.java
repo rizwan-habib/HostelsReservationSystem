@@ -2,11 +2,23 @@ package com.javahelps.model;
 
 import java.util.ArrayList;
 
+
+
 public class Controller {
+	private static Controller INSTANCE = null;
 	HostelReservationSystem system;
-	public Controller() {
+	private Controller() {
 		// TODO Auto-generated constructor stub
 		system=new HostelReservationSystem();
+	}
+	public static Controller getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new Controller();
+
+		return INSTANCE;
+	}
+	public static void setINSTANCE(Controller iNSTANCE) {
+		INSTANCE = iNSTANCE;
 	}
 	public String login(String username,String password) {
 		return system.login(username, password);

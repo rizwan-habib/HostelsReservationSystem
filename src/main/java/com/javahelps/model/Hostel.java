@@ -13,11 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
 @Entity
 public class Hostel {
 	@Id
@@ -135,6 +130,7 @@ public class Hostel {
 		this.password = password;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List<Room> enterHostelDetails(int roomNo, int totalBeds, String roomType, int floorNo) {
 		// TODO Auto-generated method stub
 		ArrayList<Room> res=new ArrayList<Room>();

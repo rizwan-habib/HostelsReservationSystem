@@ -1,18 +1,23 @@
 package com.javahelps.model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.catalina.Host;
+import com.javahelps.persistance.PersistanceFactory;
+import com.javahelps.persistance.PersistanceHandler;
+import com.javahelps.persistance.PersistanceSingleton;
 
 public class HostelReservationSystem {
-	private ArrayList<Hostel> Hostels=new ArrayList();
-    private ArrayList<Resident> residents=new ArrayList();
+	private ArrayList<Hostel> Hostels=new ArrayList<Hostel>();
+    private ArrayList<Resident> residents=new ArrayList<Resident>();
     private PersistanceHandler persistancehandler;
     public HostelReservationSystem() {
 		// TODO Auto-generated constructor stub
-    	persistancehandler=new PersistanceHandler();
+    	PersistanceFactory perFactory = new PersistanceFactory();
+    	PersistanceSingleton singleton = PersistanceSingleton.getInstance();
+		String db=singleton.getPersistance();
+        persistancehandler = perFactory.getPersistance(db);
+    	
     }
     public String login(String username,String password) {
 		return validateLogin(username,password);
@@ -169,6 +174,12 @@ public class HostelReservationSystem {
 					res.add(residents.get(j));
 				}
 			}
+		}
+		if (res.size()==0)
+		{
+			Resident r=new Resident();
+			r.setHostelname("null");
+			res.add(r);
 		}
 		return res;
 	}
